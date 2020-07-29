@@ -1,0 +1,17 @@
+{% extends "basic/homepage.html" %}
+
+{% block body %}
+<form method="POST" action="{% url 'basic:register' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% if registered %}
+    <h1>Thanks for registration!</h1>
+
+    {% else %}
+    {{user.as_p}}
+    {{profile.as_p}}
+    <input type="submit">
+    {% endif %}
+</form>
+
+{% endblock %}
